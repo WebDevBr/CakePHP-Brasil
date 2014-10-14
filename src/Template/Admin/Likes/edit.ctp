@@ -13,7 +13,7 @@
 <?= $this->Form->create($like) ?>
 	<fieldset>
 		<legend><?= __('Edit Like') ?></legend>
-	<?php
+	<?=
 		echo $this->Form->input('blog_id', ['options' => $blogs]);
 		echo $this->Form->input('user_id', ['options' => $users]);
 		echo $this->Form->input('from');

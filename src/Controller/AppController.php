@@ -16,6 +16,8 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Network\Exception\NotFoundException;
+use Cake\Network\Exception\UnauthorizedException;
 
 /**
  * Application Controller
@@ -57,6 +59,15 @@ class AppController extends Controller {
         ]
 	];
 	public $helpers = ['Form', 'Markdown'];
+
+	public function beforeFilter(Event $e) {
+		$params = $this->request->params;
+		if (!empty($params['prefix']) and $params['prefix']=='admin') {
+			if ($this->Auth->user('admin') != true) {
+				throw new UnauthorizedException('Opa!, você não pode estar aqui!');
+			}
+		}
+	}
 
 	public function beforeRender(Event $e) {
 		$authUser = false;

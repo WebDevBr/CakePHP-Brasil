@@ -43,7 +43,7 @@
 	</table>
 	<div class="paginator">
 		<ul class="pagination">
-		<?php
+		<?=
 			echo $this->Paginator->prev('< ' . __('previous'));
 			echo $this->Paginator->numbers();
 			echo $this->Paginator->next(__('next') . ' >');

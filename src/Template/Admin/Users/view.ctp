@@ -45,7 +45,7 @@
 <div class="related row">
 	<div class="column large-12">
 	<h4 class="subheader"><?= __('Related Blogs') ?></h4>
-	<?php if (!empty($user->blogs)): ?>
+	<?= if (!empty($user->blogs)): ?>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Id') ?></th>
@@ -78,13 +78,13 @@
 		</tr>
 		<?php endforeach; ?>
 	</table>
-	<?php endif; ?>
+	<?= endif; ?>
 	</div>
 </div>
 <div class="related row">
 	<div class="column large-12">
 	<h4 class="subheader"><?= __('Related Likes') ?></h4>
-	<?php if (!empty($user->likes)): ?>
+	<?= if (!empty($user->likes)): ?>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Id') ?></th>
@@ -109,6 +109,6 @@
 		</tr>
 		<?php endforeach; ?>
 	</table>
-	<?php endif; ?>
+	<?= endif; ?>
 	</div>
 </div>
