@@ -54,4 +54,15 @@ class UsersTable extends Table {
 		return $validator;
 	}
 
+	public function security($user, $removePsw = false)
+    {
+    	if (isset($user['properties']['role']))
+    		unset($user['properties']['role']);
+    	
+    	if ($removePsw and isset($user['properties']['password']) and empty($user['properties']['password']))
+    		unset($user['properties']['password']);
+
+    	return $user;
+    }
+
 }

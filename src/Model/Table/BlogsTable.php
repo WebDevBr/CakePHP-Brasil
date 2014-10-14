@@ -63,4 +63,17 @@ class BlogsTable extends Table {
 		return $validator;
 	}
 
+	public function setUser($blogs, $id)
+	{
+		$blogs['user_id']=$id;
+		return $blogs;
+	}
+
+	public function beforeSave(Event $event, Blog $entity) {
+		if (isset($entity->slug) and empty($entity->slug)) {
+			if (!empty($entity->title))
+				$entity->slug = strtolower(Inflector::slug($entity->title));
+		}
+	}
+
 }

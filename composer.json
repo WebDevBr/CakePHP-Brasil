@@ -8,7 +8,8 @@
 		"php": ">=5.4.16",
 		"cakephp/cakephp": "3.0.*-dev",
 		"mobiledetect/mobiledetectlib": "2.*",
-		"cakephp/debug_kit": "3.0.*-dev"
+		"cakephp/debug_kit": "3.0.*-dev",
+		"erusev/parsedown": "1.1.*"
 	},
 	"require-dev": {
 		"d11wtq/boris": "1.0.*"

@@ -23,4 +23,9 @@ class User extends Entity {
 		'likes' => true,
 	];
 
+	protected function _setPassword($password) {
+        return (new DefaultPasswordHasher)->hash($password);
+    }
+
+
 }

@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -34,7 +35,34 @@ class AppController extends Controller {
  *
  * @var array
  */
-	public $components = ['Flash'];
-	public $helpers = ['Form'];
+	public $components = [
+		'Flash',
+		'Auth' => [
+			'loginAction'=>[
+				'prefix'=>false,
+				'controller'=>'users',
+				'action'=>'acesso'
+			],
+			'authenticate'=> [
+				'Form'=>[
+					'fields'=>['username'=>'email']
+				]
+			],
+			'authError'=>'Nenhum dado de acesso encontrado',
+            'loginRedirect' => [
+                'controller' => 'Blogs',
+                'action' => 'index'
+            ],
+            'logoutRedirect' =>  '/'
+        ]
+	];
+	public $helpers = ['Form', 'Markdown'];
 
+	public function beforeRender(Event $e) {
+		$authUser = false;
+		if (!empty(($this->Auth->user())))
+			$authUser = $this->Auth->user();
+		$this->set(['authUser'=>$authUser]);
+	}
+	
 }
