@@ -1,26 +1,29 @@
-# CakePHP Application Skeleton
+CakePHP Brasil
+Portal/Rede Social sobre CakePHP no Brasil.
 
-[![Build Status](https://api.travis-ci.org/cakephp/app.png)](https://travis-ci.org/cakephp/app)
-[![License](https://poser.pugx.org/cakephp/app/license.svg)](https://packagist.org/packages/cakephp/app)
+Se você se interessou por este projeto e tem interesse em participar, saiba que estamos na etapa de organização ainda e muitas perguntas estão passando pela minha cabeça, para começar precisamos definir:
 
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.0.
+Qual versão do CakePHP usar? 2.X ou 3.x - Discussão: Versão do CakePHP
+Que ideia de recursos vocês acham que deveria ter no CakePHP Brasil? - Discussão: Recursos
+Com formato de blog/portal ou de rede social? - Discussão: Formato do portal
+Recursos definidos
 
-This is an unstable repository and should be treated as an alpha.
+Pra começar vamos definir os recursos, o que já digo que teremos:
 
-## Installation
+Perfis com informações dos participantes
+Blog principal e microblogs?
+Area de dúvidas com integração a um FAQ (as perguntas podem ser marcadas para uma página aonde estariam as dúvidas mais postadas)?
+Cadastro de profissionais Freelancers e Fixos e Vagas de trabalho
+Sistema de pontuação para respostas de dúvidas e para artigos, assim a participação de cada um ficaria mais evidente em um Ranking e também nas buscas por profissionais, ou seja, um reconhecimento evidente.
+Chat (tipo bate-papo, ou mensagens instantâneas ou os dois, ainda a definir)
+Participantes
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist -s dev cakephp/app [app_name]`.
+O seu nome vai aparecer aqui se você participar do desenvolvimento do projeto
 
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist -s dev cakephp/app [app_name]
-```
+Erik Figueiredo
 
-You should now be able to visit the path to where you installed the app and see
-the setup traffic lights.
+License
 
-## Configuration
+MIT
 
-Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
+Free Software, Yeah!!!

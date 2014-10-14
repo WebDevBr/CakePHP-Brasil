@@ -13,8 +13,9 @@ Router::scope('/', function($routes) {
 	$routes->connect('/', ['controller' => 'Blogs', 'action' => 'index']);
 	$routes->connect('/devs', ['controller' => 'Users', 'action' => 'index']);
 	$routes->connect('/devs/:action/*', ['controller' => 'Users']);
-	$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-	$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+	$routes->connect('/meus-artigos', ['controller' => 'Blogs', 'action'=>'meusArtigos']);
+	$routes->connect('/artigos/:action/*', ['controller' => 'Blogs']);
+	$routes->connect('/artigo/*', ['controller' => 'Blogs', 'action'=>'ver']);
 
 	$routes->fallbacks();
 });
