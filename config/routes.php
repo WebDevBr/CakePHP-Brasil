@@ -10,6 +10,9 @@ Router::prefix('admin', function($routes) {
 });
 
 Router::scope('/', function($routes) {
+	$routes->connect('/', ['controller' => 'Blogs', 'action' => 'index']);
+	$routes->connect('/devs', ['controller' => 'Users', 'action' => 'index']);
+	$routes->connect('/devs/:action/*', ['controller' => 'Users']);
 	$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 	$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
