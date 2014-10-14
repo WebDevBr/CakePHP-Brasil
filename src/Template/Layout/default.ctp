@@ -1,59 +1,87 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
 <!DOCTYPE html>
-<html>
-<head>
-	<?= $this->Html->charset() ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>
-		<?= $cakeDescription ?>:
-		<?= $this->fetch('title') ?>
-	</title>
-	<?= $this->Html->meta('icon') ?>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo $this->fetch('title');?></title>
+	<?php echo $this->Html->meta('icon');?>
+    <!-- Bootstrap -->
+    <?php echo $this->Html->css('style');?>
+    <?php $this->fetch('meta'); ?>
+    <?php $this->fetch('css'); ?>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <?php
+              $img = $this->Html->image(
+                'logo-cakephp-brasil.png',
+                ['alt'=>'Logo CakePHP Brasil', 'class'=>'img-responsive']
+              );
+              echo $this->Html->link(
+                $img,
+                '/',
+                ['escape'=>false]
+              );
+            ?>
+          </div>
+          <div class="col-md-4">
+            <p class="text-right">
+            <?php
+              echo $this->Html->link(
+                '<strong>ajude manter este projeto online!</strong>',
+                '/apoio',
+                ['escape'=>false, 'class'=>'text-shadow']
+              );
+            ?>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="horizontal text-right">
+              <ul>
+              <?php echo $this->element('menu');?>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1><?php $title = (!empty($title)) ? $title : 'CakePHP - O Framework PHP de Desenvolvimento rápido!'; echo $title;?></h1>
+          </div>
+        </div>
+      </section>
+      <section class="container">
+        <?php $this->Flash->render(); ?>
+        <?php echo $this->fetch('content');?>
+      </section>
+    </main>
 
-	<?= $this->Html->css('base.css') ?>
-	<?= $this->Html->css('cake.css') ?>
-
-	<?= $this->fetch('meta') ?>
-	<?= $this->fetch('css') ?>
-	<?= $this->fetch('script') ?>
-</head>
-<body>
-	<header>
-		<div class="header-title">
-			<span><?= $this->fetch('title') ?></span>
-		</div>
-		<div class="header-help">
-			<span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-			<span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
-		</div>
-	</header>
-	<div id="container">
-		
-		<div id="content">
-			<?= $this->Flash->render() ?>
-
-			<div class="row">
-				<?= $this->fetch('content') ?>
-			</div>
-		</div>
-		<footer>
-		</footer>
-	</div>
-</body>
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center"><small>copyright CakePHP Brasil</small></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <?php echo $this->Html->scriptBlock('base_url = "'.$this->Url->build('/', true).'"');?>
+    <?php echo $this->Html->script('script');?>
+    <?php echo $this->fetch('script'); ?>
+  </body>
 </html>

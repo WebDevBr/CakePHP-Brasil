@@ -1,0 +1,3 @@
+$(function(){
+	/*Seu código aqui*/
+});

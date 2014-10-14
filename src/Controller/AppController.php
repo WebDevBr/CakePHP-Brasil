@@ -35,4 +35,6 @@ class AppController extends Controller {
  * @var array
  */
 	public $components = ['Flash'];
+	public $helpers = ['Form'];
+
 }

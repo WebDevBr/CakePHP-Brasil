@@ -1,0 +1,67 @@
+/* 
+ * Aqui tenho todas as configurações e funções que posso vir a usar na minha aplicação,
+ * como cores e tamanhos padrão e funções diversas
+ * 
+ */
+
+$color-1: rgba(255, 127, 39, 1);
+$color-2: #FFF;
+$color-3: #000;
+$font-size-base: 13px;
+
+/* FUNÇÕES  */
+
+/* headingsSize - Calcula o tamanho das fonts com base em $size (tamanho do H4) */
+@mixin headings($size:1em, $from: 1, $to: 6){
+	h1, h2, h3, h4, h5, h6 {
+		@content;
+	}
+}
+
+/* 
+ * $property = all, background, color, height, width, outline...
+ * $time = 1s (to seconds), 1ms (to miliseconds)
+ * $function = ease, linear, ease-in, ease-out, ease-in-out
+ */
+@mixin transition($property: all, $time: 1s, $function: ease){
+    -webkit-transition: $property $time $function;
+	-moz-transition: $property $time $function;
+	-ms-transition: $property $time $function;
+	-o-transition: $property $time $function;
+	transition: $property $time $function;
+}
+
+/*
+ * box-shadow
+ */
+@mixin box-shadow($h: 0, $v: 0, $blur: 3px, $spread: 0, $color:#000){
+	-webkit-box-shadow: $h $v $blur $spread $color;
+	box-shadow: $h $v $blur $spread $color;
+}
+
+/*
+ * border-radius
+ */
+@mixin border-radius($r: 5px){
+	-webkit-border-radius: $r;
+	border-radius: $r;
+}
+
+/*
+ * fade-in
+ */
+
+@mixin fadein(){
+    @keyframes fadein {
+        @content;
+    }
+    @-moz-keyframes fadein { /* Firefox */
+        @content;
+    }
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+        @content;
+    }
+    @-o-keyframes fadein { /* Opera */
+        @content;
+    }
+}
