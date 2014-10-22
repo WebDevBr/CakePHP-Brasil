@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'Imagine' => array($vendorDir . '/imagine/imagine/lib'),
     'Detection' => array($vendorDir . '/mobiledetect/mobiledetectlib/namespaced'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
     'Boris' => array($vendorDir . '/d11wtq/boris/lib'),

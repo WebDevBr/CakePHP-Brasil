@@ -10,18 +10,20 @@ function Toolbar(options) {
 
 Toolbar.prototype = {
 	_currentPanel: null,
+	_lastPanel: null,
 	_state: 0,
 	currentRequest: null,
 	originalRequest: null,
 
 	states: [
 		'collapse',
-		'toolbar',
+		'toolbar'
 	],
 
 	toggle: function() {
 		var state = this.nextState();
 		this.updateButtons(state);
+		this.updateToolbarState(state);
 		window.parent.postMessage(state, window.location.origin)
 	},
 
@@ -61,6 +63,15 @@ Toolbar.prototype = {
 		}
 	},
 
+	updateToolbarState: function(state) {
+		if (state === 'toolbar') {
+			this.button.addClass('open');
+		}
+		if (state === 'collapse') {
+			this.button.removeClass('open');
+		}
+	},
+
 	updateButtons: function(state) {
 		if (state === 'toolbar') {
 			this.panelButtons.show();
@@ -92,14 +103,26 @@ Toolbar.prototype = {
 		var url = baseUrl + 'debug_kit/panels/view/' + id;
 		var contentArea = this.content.find('#panel-content');
 		var _this = this;
+		var timer;
+		var loader = $('#loader');
+
+		if (this._lastPanel != id) {
+			timer = setTimeout(function() {
+				loader.addClass('loading');
+			}, 500);
+		}
+
 		this._currentPanel = id;
+		this._lastPanel = id;
 
 		window.parent.postMessage('expand', window.location.origin);
 
-		// Slide panel into place - css transitions.
-		this.content.addClass('enabled');
-
 		$.get(url, function(response) {
+			clearTimeout(timer);
+			loader.removeClass('loading');
+
+			// Slide panel into place - css transitions.
+			_this.content.addClass('enabled');
 			contentArea.html(response);
 			_this.bindNeatArray();
 		});

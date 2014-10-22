@@ -13,13 +13,13 @@
 	
 	</div>
 	<div class="col-md-8">
-	<?= $this->Form->create($user) ?>
+	<?= $this->Form->create($user, ['type' => 'file']) ?>
 		<fieldset>
 			<legend><?= __('Atualizar perfil'); ?></legend>
 		<?php
 			echo $this->Form->input('name', ['label'=>'Seu nome']);
 			echo $this->Form->input('description', ['label'=>'Um pouco sobre você']);
-			echo $this->Form->input('photo', ['label'=>'Sua foto']);
+			echo $this->Form->input('photo', ['label'=>'Sua foto','type' => 'file']);
 			echo $this->Form->input('email');
 		?>
 		</fieldset>

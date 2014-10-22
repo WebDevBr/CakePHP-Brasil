@@ -12,7 +12,8 @@
 		"erusev/parsedown": "1.1.*"
 	},
 	"require-dev": {
-		"d11wtq/boris": "1.0.*"
+		"d11wtq/boris": "1.0.*",
+		"imagine/imagine": "~0.5.0"
 	},
 	"suggest": {
 		"phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
