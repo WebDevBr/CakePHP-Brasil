@@ -6,7 +6,7 @@
 		<h3>
 			<?php echo $this->Html->link($artigo->title, '/artigo/'.$artigo->slug);?>
 		</h3>
-		<p><small>Escrito por: <?php echo $this->Html->link($artigo->user->name, '/'.$artigo->user->slug);?> as <?php echo $artigo->created->format('H \d\o \d\i\a j/n/Y');?></small></p>
+		<p><small>Escrito por: <?php echo $this->Html->link($artigo->user->name, '/'.$artigo->user->slug);?> as <?php echo $artigo->created->format('H\H \d\o \d\i\a j/n/Y');?></small></p>
 		<?php echo $this->Html->image('perfil/'.$artigo->user->photo, ['class'=>'img-left']);?>
 		<p>
 			<?php echo $this->Markdown->toHtmlResume($artigo->content, 200); ?>
