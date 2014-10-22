@@ -1,12 +1,8 @@
 CakePHP Brasil
 =========
 
-<<<<<<< HEAD
-=======
-[Status atual]
-
->>>>>>> rev
 Portal/Rede Social sobre CakePHP no Brasil.
+----------
 
 Se você se interessou por este projeto e tem interesse em participar, saiba que  ainda estamos desenvolvendo muita coisa, ainda precisamos criar muita coisa, então saiba que:
 
@@ -42,9 +38,5 @@ MIT
 [Erik Figueiredo]:http://blog.erikfigueiredo.com.br/
 [Discussão: Versão do CakePHP]:https://github.com/erikfig/CakePHP-Brasil/issues/2
 [Discussão: Recursos]:https://github.com/erikfig/CakePHP-Brasil/issues/1
-<<<<<<< HEAD
-[Discussão: Formato do portal]:https://github.com/erikfig/CakePHP-Brasil/issues/3
-=======
 [Discussão: Formato do portal]:https://github.com/erikfig/CakePHP-Brasil/issues/3
 [Status atual]:http://dev.cakephpbrasil.com.br
->>>>>>> rev
