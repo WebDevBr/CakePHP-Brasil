@@ -8,7 +8,7 @@ class BlogsController extends AppController {
 
 	public function beforeFilter(Event $e) {
 	    parent::beforeFilter($e);
-	    $this->Auth->allow(['index']);
+	    $this->Auth->allow(['index', 'ver']);
 	}
 
 	public function ver($slug = null) {
