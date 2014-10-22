@@ -16,6 +16,11 @@ Router::scope('/', function($routes) {
 	$routes->connect('/meus-artigos', ['controller' => 'Blogs', 'action'=>'meusArtigos']);
 	$routes->connect('/artigos/:action/*', ['controller' => 'Blogs']);
 	$routes->connect('/artigo/*', ['controller' => 'Blogs', 'action'=>'ver']);
+	$routes->connect(
+		'/:slug',
+		['controller' => 'Users', 'action'=>'ver'],
+		['slug'=>'[a-z\-]+', 'pass'=>['slug']]
+	);
 
 	$routes->fallbacks();
 });
