@@ -41,7 +41,7 @@ class UsersController extends AppController
 				$this->Flash->error('Opa! Verifique seus dados!');
 			}
 		}
-		$this->set(['user'=>$user, 'title'=>'Participe do CakePHP Brasil']);
+		$this->set(['user'=>$user, 'title'=>'Participe do CakePHP Brasil', 'perfis'=>$this->Users->perfis()]);
 	}
 
 	public function acesso() {

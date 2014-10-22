@@ -18,6 +18,7 @@ use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\Utility\Inflector;
 use Cake\View\Exception\MissingViewException;
+use Cake\Event\Event;
 
 /**
  * Static content controller
@@ -28,6 +29,11 @@ use Cake\View\Exception\MissingViewException;
  */
 class PagesController extends AppController {
 
+	public function beforeFilter(Event $event) {
+	    parent::beforeFilter($event);
+	    $this->Auth->allow(['display']);
+	}
+
 /**
  * Displays a view
  *
@@ -37,6 +43,14 @@ class PagesController extends AppController {
  */
 	public function display() {
 		$path = func_get_args();
+
+		$title = 'CakePHP Brasil';
+
+		if ($path[0] == 'apoio') {
+			$title = 'Apoie o CakePHP Brasil';
+		}
+
+		$this->set(compact('title'));
 
 		$count = count($path);
 		if (!$count) {

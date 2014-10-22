@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $this->fetch('title');?></title>
+    <title><?php $title_header = (!empty($title)) ? $title.' | ' : ''; echo $title_header;?>CakePHP Brasil</title>
 	<?php echo $this->Html->meta('icon');?>
     <!-- Bootstrap -->
     <?php echo $this->Html->css('style');?>
@@ -39,7 +39,7 @@
             <?php
               echo $this->Html->link(
                 '<strong>ajude manter este projeto online!</strong>',
-                '/apoio',
+                '/pages/apoio',
                 ['escape'=>false, 'class'=>'text-shadow']
               );
             ?>
@@ -61,7 +61,7 @@
       <section class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1><?php $title = (!empty($title)) ? $title : 'CakePHP - O Framework PHP de Desenvolvimento rápido!'; echo $title;?></h1>
+            <h1><?php $title = (!empty($title)) ? $title : 'CakePHP Brasil!'; echo $title;?></h1>
           </div>
         </div>
       </section>

@@ -67,7 +67,11 @@ class BlogsController extends AppController {
 			'contain' => ['Users', 'Tags', 'Categories'],
 			'order'=>['Blogs.created DESC']
 		];
-		$this->set('artigos', $this->paginate($this->Blogs));
+		$perfis = $this->Blogs->Users->perfis();
+		$this->set([
+			'artigos'=>$this->paginate($this->Blogs),
+			'perfis'=>$perfis
+		]);
 	}
 	public function meusArtigos() {
 

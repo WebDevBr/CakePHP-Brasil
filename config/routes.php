@@ -16,6 +16,7 @@ Router::scope('/', function($routes) {
 	$routes->connect('/meus-artigos', ['controller' => 'Blogs', 'action'=>'meusArtigos']);
 	$routes->connect('/artigos/:action/*', ['controller' => 'Blogs']);
 	$routes->connect('/artigo/*', ['controller' => 'Blogs', 'action'=>'ver']);
+	$routes->connect('/pages/*', ['controller' => 'pages', 'action'=>'display']);
 	$routes->connect(
 		'/:slug',
 		['controller' => 'Users', 'action'=>'ver'],

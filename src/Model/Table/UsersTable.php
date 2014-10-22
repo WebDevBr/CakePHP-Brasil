@@ -59,17 +59,6 @@ class UsersTable extends Table {
 		return $validator;
 	}
 
-	public function security($user, $removePsw = false)
-    {
-    	if (isset($user['properties']['role']))
-    		unset($user['properties']['role']);
-    	
-    	if ($removePsw and isset($user['properties']['password']) and empty($user['properties']['password']))
-    		unset($user['properties']['password']);
-
-    	return $user;
-    }
-
     public function beforeSave($event, $entity) {
 		if (isset($entity->photo) and is_array($entity->photo) and isset($entity->id)) {
 			if ($this->imageValidate($entity->photo)) {
@@ -82,6 +71,28 @@ class UsersTable extends Table {
 		}
 
 	}
+
+    public function security($user, $removePsw = false)
+    {
+        if (isset($user['properties']['role']))
+            unset($user['properties']['role']);
+        
+        if ($removePsw and isset($user['properties']['password']) and empty($user['properties']['password']))
+            unset($user['properties']['password']);
+
+        return $user;
+    }
+
+    public function perfis()
+    {
+        return $this->find('all', [
+            'limit'=>10,
+            'order'=>'RAND()',
+            'conditions'=>[
+               // 'Users.photo !='=>null
+            ]
+        ]);
+    }
 
 	protected function imageValidate($file)
     {

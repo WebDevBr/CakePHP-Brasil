@@ -14,4 +14,7 @@
 	<?php echo $this->Form->button(__('Submit')) ?>
 	<?php echo $this->Form->end() ?>
 	</div>
+	<div class="col-md-3">
+		<?php echo $this->element('perfis');?>
+	</div>
 </div>

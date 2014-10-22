@@ -39,7 +39,7 @@
             <?php
               echo $this->Html->link(
                 '<strong>ajude manter este projeto online!</strong>',
-                '/apoio',
+                '/pages/apoio',
                 ['escape'=>false, 'class'=>'text-shadow']
               );
             ?>
@@ -69,6 +69,9 @@
         <?php $this->Flash->render(); ?>
         <?php echo $this->fetch('content');?>
       </section>
+      <div class="container">
+        <?php echo $this->element('disqus');?>
+      </div>
     </main>
 
     <footer id="footer">
