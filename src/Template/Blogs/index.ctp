@@ -7,7 +7,11 @@
 			<?php echo $this->Html->link($artigo->title.'  <small><span class="glyphicon glyphicon-link"></span> </small>', '/artigo/'.$artigo->slug, ['escape'=>false]);?>
 		</h3>
 		<p><small>Escrito por: <?php echo $this->Html->link($artigo->user->name, '/'.$artigo->user->slug);?> as <?php echo $artigo->created->format('H\H \d\o \d\i\a j/n/Y');?></small></p>
-		<?php echo $this->Html->image('perfil/'.$artigo->user->photo, ['class'=>'img-left']);?>
+
+		<?php
+			$img_url = (empty($artigo->user->photo))? 'default.jpg' : 'perfil/'.$artigo->user->photo;
+			echo $this->Html->image($img_url, ['class'=>'img-left']);
+		?>
 		<p>
 			<?php echo $this->Markdown->toHtmlResume($artigo->content, 200); ?>
 		</p>
