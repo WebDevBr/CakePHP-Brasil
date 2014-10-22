@@ -51,10 +51,7 @@ class AppController extends Controller {
 				]
 			],
 			'authError'=>'Nenhum dado de acesso encontrado',
-            'loginRedirect' => [
-                'controller' => 'Blogs',
-                'action' => 'index'
-            ],
+            'loginRedirect' => '/meus-artigos',
             'logoutRedirect' =>  '/'
         ]
 	];

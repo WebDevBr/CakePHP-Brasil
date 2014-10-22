@@ -14,8 +14,8 @@ class BlogsController extends AppController {
 	public function ver($slug = null) {
 		$blog = $this->Blogs->find('all',
 			[
-				'contain'=>[],
-				'conditions'=>['slug'=>$slug]
+				'contain'=>['Users'],
+				'conditions'=>['Blogs.slug'=>$slug]
 			]
 		)->first();
 		$this->set(['blog'=>$blog, 'title'=>$blog->title]);
@@ -52,7 +52,6 @@ class BlogsController extends AppController {
 			$blog = $this->Blogs->patchEntity($blog, $this->request->data);
 			if ($this->Blogs->save($blog)) {
 				$this->Flash->success('Seu artigo foi salvo com sucesso.');
-				return $this->redirect('/meus-artigos');
 			} else {
 				$this->Flash->error('Seu artigo não foi salvo, verifique os dados.');
 			}

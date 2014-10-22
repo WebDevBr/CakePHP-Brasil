@@ -4,7 +4,7 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use App\Model\Table\Event;
+use App\Model\Table\Event as TableEvent;
 
 /**
  * Blogs Model
@@ -70,7 +70,8 @@ class BlogsTable extends Table {
 		return $blogs;
 	}
 
-	public function beforeSave(Event $event, Blog $entity) {
+
+	public function beforeSave($event, $entity) {
 		if (isset($entity->slug) and empty($entity->slug)) {
 			if (!empty($entity->title))
 				$entity->slug = strtolower(Inflector::slug($entity->title));
