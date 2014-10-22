@@ -1,0 +1,57 @@
+body {
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 48px;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 36px;
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 26px;
+}
+
+h3 a {
+	color: inherit;
+}
+
+#header {
+	background: #000 url(../img/bg-header.jpg) no-repeat center 14px;
+	height:230px;
+	padding-top: 34px;
+}
+
+#header, #header a {
+	color: #fff;
+}
+
+#header nav{
+	margin-top: 64px;
+}
+
+h1, .text-shadow {
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+#header nav a {
+	@include transition(all, .5s);
+}
+
+#header nav a:hover {
+	padding-bottom: 10px;
+}
+
+.perfil .logo {
+	border: 1px solid rgba(255, 255, 255, 0);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+img.perfil {
+	width: 70px;
+}

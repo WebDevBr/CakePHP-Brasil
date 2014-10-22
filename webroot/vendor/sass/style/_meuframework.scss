@@ -1,0 +1,18 @@
+nav ul, nav li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav.horizontal ul {
+	display: block;
+}
+
+nav.horizontal li, nav.horizontal li a {
+	display: inline-block;
+}
+
+.img-left {
+	float: left;
+	margin-right: 7px;
+}
