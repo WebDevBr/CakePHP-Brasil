@@ -5,3 +5,26 @@
 .btn.btn-dark:hover {
 	background: #333;
 }
+
+blockquote.perfil {
+	border: none;
+	quotes: "\201C""\201D""\2018""\2019";
+	text-align: center;
+}
+blockquote.perfil:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote.perfil:after {
+  color: #ccc;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.25em;
+  vertical-align: -0.4em;
+}

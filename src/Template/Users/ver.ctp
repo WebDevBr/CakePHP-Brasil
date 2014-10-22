@@ -1,3 +1,6 @@
+
+<blockquote class="perfil"><?php echo $user->description;?></blockquote>
+
 <center><a href="https://www.facebook.com/sharer/sharer.php?&display=popup&u=<?php echo $this->Url->build('/'.$user->slug, true);?>" class="btn btn-primary popup">
 			<span class="glyphicon glyphicon-share-alt"></span> Compartilhe
 		</a></center>
