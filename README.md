@@ -8,29 +8,25 @@ CakePHP Brasil
 >>>>>>> rev
 Portal/Rede Social sobre CakePHP no Brasil.
 
-Se você se interessou por este projeto e tem interesse em participar, saiba que estamos na etapa de organização ainda e muitas perguntas estão passando pela minha cabeça, para começar precisamos definir:
+Se você se interessou por este projeto e tem interesse em participar, saiba que  ainda estamos desenvolvendo muita coisa, ainda precisamos criar muita coisa, então saiba que:
 
-  - Qual versão do CakePHP usar? 2.X ou 3.x - [Discussão: Versão do CakePHP]
-  - Que ideia de recursos vocês acham que deveria ter no CakePHP Brasil? - [Discussão: Recursos]
-  - Com formato de blog/portal ou de rede social? - [Discussão: Formato do portal]
+  - Trabalharemos no formato de rede sociald e blogs
+  - Já criei a parte básica de Blogs e Perfis de usuários e espero que possa ajudar nos testes e correções
+  - Agora vamos partir pra fazer de likes nos artigos e perfis de forma a calcular a pontuação do usuário e isso ainda precisa ser definido, então vá as perguntas e me ajude
+  - Após isso vamos construir a área de dúvidas e o FAQ e o sistema de likes e pontuação
+  - A penultima etapa será o cadastro de vagas e freelancers
+  - Para fechar criaremos um sistema de troca de mensagens e um chat público (aberto aos cadastrados)
 
-
-Recursos definidos
+Prioridades
 -----
 
-Pra começar vamos definir os recursos, o que já digo que teremos:
+No momento a prioridade é testar os bugs do que já foi desenvolvido para ser publicado como está, e após isso vamos passar para a próxima etapa que é integrar os likes e calcular pontuação dos usuários.
 
-  - Perfis com informações dos participantes
-  - Blog principal e microblogs?
-  - Area de dúvidas com integração a um FAQ (as perguntas podem ser marcadas para uma página aonde estariam as dúvidas mais postadas)?
-  - Cadastro de profissionais Freelancers e Fixos e Vagas de trabalho
-  - Sistema de pontuação para respostas de dúvidas e para artigos, assim a participação de cada um ficaria mais evidente em um Ranking e também nas buscas por profissionais, ou seja, um reconhecimento evidente.
-  - Chat (tipo bate-papo, ou mensagens instantâneas ou os dois, ainda a definir)
 
 Participantes
 -----
 
-O seu nome vai aparecer aqui se você participar do desenvolvimento do projeto
+O seu nome vai aparecer aqui se você participar do desenvolvimento do projeto, no momento só eu contribui para o projeto (código de verdade), então vamos pro as mãos na massa.
 
 [Erik Figueiredo]
 
