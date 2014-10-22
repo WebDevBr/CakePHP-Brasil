@@ -1,3 +1,4 @@
 /config/app.php
 /tmp/*
 /logs/*
+/webroot/.sass-cache/*
