@@ -14,7 +14,10 @@
 	</div>
 	<div class="col-md-3">
 		<h3>Autor</h3>
-		<?php echo $this->Html->image('perfil/'.$blog->user->photo, ['class'=>'img-left img-thumbnail']);?>
+		<?php
+			$img_url = (empty($blog->user->photo))? 'default.jpg' : 'perfil/'.$blog->user->photo;
+			echo $this->Html->image($img_url, ['class'=>'img-left img-thumbnail']);
+		?>
 		<p>
 			<?php echo $this->Html->link($blog->user->name, '/'.$blog->user->slug);?>	
 		</p>
