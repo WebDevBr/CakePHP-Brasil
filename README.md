@@ -26,6 +26,12 @@ O seu nome vai aparecer aqui se você participar do desenvolvimento do projeto, 
 
 [Erik Figueiredo]
 
+[Lucas Macedo]
+
+Configrações Necessárias
+----
+[Envio de E-mails]
+
 
 License
 ----
@@ -36,7 +42,10 @@ MIT
 **Free Software, Yeah!!!**
 
 [Erik Figueiredo]:http://blog.erikfigueiredo.com.br/
+[Lucas Macedo]:http://greensolucoes.com/
 [Discussão: Versão do CakePHP]:https://github.com/erikfig/CakePHP-Brasil/issues/2
 [Discussão: Recursos]:https://github.com/erikfig/CakePHP-Brasil/issues/1
 [Discussão: Formato do portal]:https://github.com/erikfig/CakePHP-Brasil/issues/3
 [Status atual]:http://dev.cakephpbrasil.com.br
+
+[Envio de E-mails]:https://github.com/erikfig/CakePHP-Brasil/issues/9/
