@@ -100,7 +100,7 @@ class UsersController extends AppController
 		$user = $this->Users->find('all',
 			[
 				'contain'=>[],
-				'conditions'=>[ 'Users.token'=>$token,]
+				'conditions'=>[ 'Users.token'=>$token,'Users.status' => 0]
 			]
 		)->first();
 
