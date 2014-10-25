@@ -29,4 +29,17 @@ class MarkdownHelper extends Helper
 		return $text .= $end;
 	}
 
+	public function objectToArray($data) {
+	   if (is_array($data) || is_object($data))
+	    {
+	        $result = array();
+	        foreach ($data as $key => $value)
+	        {
+	            $result[$key] = (array) ($value);
+	        }
+	        return $result;
+	    }
+	    return $data;
+	}
+
 }
