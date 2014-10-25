@@ -49,6 +49,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` char(61) NOT NULL,
   `slug` char(70) NOT NULL,
   `admin` tinyint(1) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `token` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
