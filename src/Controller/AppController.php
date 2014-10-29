@@ -39,6 +39,7 @@ class AppController extends Controller {
  */
 	public $components = [
 		'Flash',
+		'EmailNotify',
 		'Auth' => [
 			'loginAction'=>[
 				'prefix'=>false,
@@ -47,15 +48,17 @@ class AppController extends Controller {
 			],
 			'authenticate'=> [
 				'Form'=>[
-					'fields'=>['username'=>'email']
+					'fields'=> ['username'=>'email'],
+					'scope' => ['status' => 1],
 				]
 			],
-			'authError'=>'Nenhum dado de acesso encontrado',
+			'authError'=>' Nenhum dado de acesso encontrado ',
             'redirectUrl' => '/meus-artigos',
             'logoutRedirect' =>  '/'
         ]
 	];
-	public $helpers = ['Form', 'Markdown'];
+	
+	public $helpers = ['Form', 'Markdown','Html'];
 
 	public function beforeFilter(Event $e) {
 		$params = $this->request->params;

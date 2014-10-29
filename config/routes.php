@@ -11,6 +11,7 @@ Router::prefix('admin', function($routes) {
 
 Router::scope('/', function($routes) {
 	$routes->connect('/', ['controller' => 'Blogs', 'action' => 'index']);
+	$routes->connect('/activation', ['controller' => 'Users', 'action' => 'activation']);
 	$routes->connect('/devs', ['controller' => 'Users', 'action' => 'index']);
 	$routes->connect('/devs/:action/*', ['controller' => 'Users']);
 	$routes->connect('/meus-artigos', ['controller' => 'Blogs', 'action'=>'meusArtigos']);

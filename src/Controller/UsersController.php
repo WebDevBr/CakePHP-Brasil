@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use Cake\Event\Event;
-
+use Cake\Network\Email\Email;
 class UsersController extends AppController
 {
 	public function beforeFilter(Event $event) {
 	    parent::beforeFilter($event);
-	    $this->Auth->allow(['cadastro', 'logout', 'ver']);
+	    $this->Auth->allow(['cadastro', 'logout', 'ver','activation']);
 	    $this->set(['title'=>'Acesse o CakePHP Brasil!']);
 	}
 
@@ -34,7 +34,9 @@ class UsersController extends AppController
 		$user = $this->Users->newEntity($this->request->data);
 		if ($this->request->is('post')) {
 			$user = $this->Users->security($user);
+			$user->token = md5(uniqid(rand(), true));
 			if ($this->Users->save($user)) {
+				$this->EmailNotify->Register($user->name,$user->email, $user->token);
 				$this->Flash->success('Você acabou de se cadastrar com sucesso');
 				return $this->redirect('/devs/acesso');
 			} else {
@@ -91,4 +93,31 @@ class UsersController extends AppController
 		}
 		$this->set(compact('user'));
 	}
+
+
+	public function activation(){
+		$token = $this->request->query['token'];
+		$user = $this->Users->find('all',
+			[
+				'contain'=>[],
+				'conditions'=>[ 'Users.token'=>$token,'Users.status' => 0]
+			]
+		)->first();
+
+		if(empty($user)) return $this->redirect('/');
+
+		$user->status = 1;
+
+		if($this->Users->save($user)){
+			$this->EmailNotify->Activation($user->name,$user->email);
+			$this->Flash->success('Seu Cadastro foi Ativado!');
+		}else{
+			return $this->redirect('/');
+		}
+		$this->Flash->success('Seu Cadastro foi Ativado!');
+
+		$this->set(['title'=>'Ativar Cadastro',]);
+
+	}
+
 }
