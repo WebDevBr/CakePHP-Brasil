@@ -15,7 +15,7 @@ class BlogsController extends AppController {
 		$blog = $this->Blogs->find('all',
 			[
 				'contain'=>['Users'],
-				'conditions'=>['Blogs.slug'=>$slug]
+				'conditions'=>['Blogs.slug'=>$slug, 'Blogs.status <='=>1]
 			]
 		)->first();
 		$this->set(['blog'=>$blog, 'title'=>$blog->title]);
@@ -65,7 +65,10 @@ class BlogsController extends AppController {
 	public function index() {
 		$this->paginate = [
 			'contain' => ['Users', 'Tags', 'Categories'],
-			'order'=>['Blogs.created DESC']
+			'order'=>['Blogs.created DESC'],
+            'conditions'=>[
+                'Blogs.status'=>1
+            ]
 		];
 		$perfis = $this->Blogs->Users->perfis();
 		$this->set([
