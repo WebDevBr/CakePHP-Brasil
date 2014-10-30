@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   `title` char(70) NOT NULL,
   `content` longtext NOT NULL,
   `slug` char(70) NOT NULL,
+  `status` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `tag_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
