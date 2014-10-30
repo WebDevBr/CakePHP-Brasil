@@ -10,7 +10,6 @@
 		<hr>
 		<?php
 			echo $this->Form->input('content', ['type'=>'hidden', 'id'=>'editor']);
-			echo $this->Form->input('slug', ['label' => 'Url amigável']);
 		?>
 		</fieldset>
 	<?php echo $this->Form->button(__('Salvar')) ?>

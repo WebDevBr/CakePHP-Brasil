@@ -2,6 +2,8 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Utility\Inflector;
+use Cake\ORM\TableRegistry;
 
 /**
  * Blog Entity.
@@ -25,5 +27,29 @@ class Blog extends Entity {
 		'category' => true,
 		'likes' => true,
 	];
+
+    protected function _setTitle($title)
+    {
+        if (empty($this->_properties['slug'])) {
+            $slug = strtolower(Inflector::slug($title));
+            $slug = $this->checkSlug($slug);
+            $this->set('slug', $slug);
+        }
+        return $title;
+    }
+
+    private function checkSlug($slug)
+    {
+        $blog = TableRegistry::get('Blogs');
+        $i = $blog->find('all')
+            ->where(['Blogs.slug LIKE'=>$slug.'%'])->count();
+
+        if ($i > 0) {
+            $i++;
+            $slug = $slug.'-'.$i;
+        }
+
+        return $slug;
+    }
 
 }
