@@ -52,7 +52,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `token` varchar(255) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
