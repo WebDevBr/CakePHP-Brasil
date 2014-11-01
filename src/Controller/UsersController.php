@@ -13,12 +13,7 @@ class UsersController extends AppController
 	}
 
 	public function ver($slug) {
-		$user = $this->Users->find('all',
-			[
-				'contain'=>[],
-				'conditions'=>['Users.slug'=>$slug]
-			]
-		)->first();
+		$user = $this->Users->getUserBySlug($slug);
 
 		$this->paginate = [
 			'contain' => ['Users', 'Tags', 'Categories'],
@@ -34,7 +29,7 @@ class UsersController extends AppController
 		$user = $this->Users->newEntity($this->request->data);
 		if ($this->request->is('post')) {
 			$user = $this->Users->security($user);
-			$user->token = md5(uniqid(rand(), true));
+			$user = $this->Users->setToken($user);
 			if ($this->Users->save($user)) {
 				$this->EmailNotify->Register($user->name,$user->email, $user->token);
 				$this->Flash->success('Você acabou de se cadastrar com sucesso');

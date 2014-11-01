@@ -74,13 +74,29 @@ class UsersTable extends Table {
 
     public function security($user, $removePsw = false)
     {
-        if (isset($user['properties']['role']))
-            unset($user['properties']['role']);
+        if (isset($user->role))
+            unset($user->role);
         
-        if ($removePsw and isset($user['properties']['password']) and empty($user['properties']['password']))
-            unset($user['properties']['password']);
+        if ($removePsw and isset($user->password) and empty($user->password))
+            unset($user->password);
 
         return $user;
+    }
+
+    public function setToken($user)
+    {
+        $user->token = md5(uniqid(rand(), true));
+        return $user;
+    }
+
+    public function getUser($slug)
+    {
+        return $this->find('all',
+            [
+                'contain'=>[],
+                'conditions'=>['Users.slug'=>$slug]
+            ]
+        )->first();
     }
 
     public function perfis()
