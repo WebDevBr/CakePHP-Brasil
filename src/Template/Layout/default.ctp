@@ -66,7 +66,7 @@
         </div>
       </section>
       <section class="container">
-        <?php $this->Flash->render(); ?>
+        <?php echo $this->Flash->render(); ?>
         <?php echo $this->fetch('content');?>
       </section>
     </main>
