@@ -23,10 +23,9 @@
         <div class="row">
           <div class="col-md-8">
             <?php
-
              $img_url = (empty($user->photo))? 'default.jpg' : 'perfil/'.$user->photo;
              $img = $this->Html->image(
-                'perfil/'.$img_url,
+                $img_url,
                 ['alt'=>'Logo CakePHP Brasil', 'class'=>'logo img-rounded']
              );
               echo $this->Html->link(

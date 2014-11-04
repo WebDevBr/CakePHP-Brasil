@@ -21,7 +21,7 @@ Router::scope('/', function($routes) {
 	$routes->connect(
 		'/:slug',
 		['controller' => 'Users', 'action'=>'ver'],
-		['slug'=>'[a-z\-]+', 'pass'=>['slug']]
+		['slug'=>'[a-z0-9\-]+', 'pass'=>['slug']]
 	);
 
 	$routes->fallbacks();
