@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<p>O CakePHP Brasil foi construido para ajudar a divulgar o CakePHP assim como ajudar iniciantes e profissionais experientes a explorar o melhor do Framework, minha experança é que a comunidade participe ativamente publicando artigos, ajudando a corrigir o código, sugerindo novos módulos ou desenvolvendo eles e até mesmo com os custos financeiros do projeto através de doações ou anúnciando no portal.</p>
+		<p>O CakePHP Brasil foi construido para ajudar a divulgar o CakePHP assim como ajudar iniciantes e profissionais experientes a explorar o melhor do Framework, minha esperança é que a comunidade participe ativamente publicando artigos, ajudando a corrigir o código, sugerindo novos módulos ou desenvolvendo eles e até mesmo com os custos financeiros do projeto através de doações ou anunciando no portal.</p>
 		<p>Você ainda pode inserir um banner do CakePHP Brasil no seu site e mostrar que você está ajudando. O resultado disso vai voltar pra você em forma de reconhecimento para o seu trabalho.</p>
 		<p>Agradeço muito a todos que estão e que vão participar e até mesmo você que vem aqui só pra ler nosso material, ninguém vai postar nada se não tiver você pra ler.</p>
 		<p>Obrigado a todos por participarem.</p>
