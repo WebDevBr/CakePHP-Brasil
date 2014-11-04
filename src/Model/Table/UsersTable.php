@@ -89,7 +89,7 @@ class UsersTable extends Table {
         return $user;
     }
 
-    public function getUser($slug)
+    public function getUserBySlug($slug)
     {
         return $this->find('all',
             [
