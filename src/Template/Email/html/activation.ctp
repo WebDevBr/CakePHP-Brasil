@@ -14,6 +14,7 @@
                        <?php echo $this->Html->link('Login', [
                             'controller' => 'Users',
                             'action' => 'acesso',
+                           '_full'=>true
                         ]);?>.
                         </b>
                     </p>

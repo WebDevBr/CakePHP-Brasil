@@ -13,6 +13,7 @@
                        <?php echo $this->Html->link('Clique Aqui', [
     'controller' => 'Users',
     'action' => 'activation',
+    '_full'=>true,
     null,
     '?' => ['token' => $token]
 ]);?>

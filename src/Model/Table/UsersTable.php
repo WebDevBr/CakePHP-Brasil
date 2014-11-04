@@ -74,13 +74,29 @@ class UsersTable extends Table {
 
     public function security($user, $removePsw = false)
     {
-        if (isset($user['properties']['role']))
-            unset($user['properties']['role']);
+        if (isset($user->role))
+            unset($user->role);
         
-        if ($removePsw and isset($user['properties']['password']) and empty($user['properties']['password']))
-            unset($user['properties']['password']);
+        if ($removePsw and isset($user->password) and empty($user->password))
+            unset($user->password);
 
         return $user;
+    }
+
+    public function setToken($user)
+    {
+        $user->token = md5(uniqid(rand(), true));
+        return $user;
+    }
+
+    public function getUserBySlug($slug)
+    {
+        return $this->find('all',
+            [
+                'contain'=>[],
+                'conditions'=>['Users.slug'=>$slug]
+            ]
+        )->first();
     }
 
     public function perfis()
@@ -127,6 +143,7 @@ class UsersTable extends Table {
         $size = $image->getSize();
 
         if ($size->getWidth() > 110 or $size->getHeight() > 80) {
+
             $image->resize($size->widen(110));
             $size = $image->getSize();
         }
@@ -134,12 +151,11 @@ class UsersTable extends Table {
         $half_w = $size->getWidth() / 2;
         $half_h = $size->getHeight() / 2;
         $thumb_w = 110;
-        $thumb_h = 80;
+        $thumb_h = ($size->getHeight()>=80)? 80 : $size->getHeight();
         $half_thumb_w = $thumb_w / 2;
         $half_thumb_h = $thumb_h / 2;
 
         $name = $this->fileImage($file['name'], $id.'-110-80');
-
         $image->crop(new Point($half_w-$half_thumb_w , $half_h-$half_thumb_h), new Box($thumb_w, $thumb_h));
         $image->save($this->dirImage($name));
         return $name;

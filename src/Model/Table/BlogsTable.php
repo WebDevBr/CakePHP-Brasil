@@ -51,8 +51,6 @@ class BlogsTable extends Table {
 			->notEmpty('title')
 			->validatePresence('content', 'create')
 			->notEmpty('content')
-			->validatePresence('slug', 'create')
-			->notEmpty('slug')
 			->add('user_id', 'valid', ['rule' => 'numeric'])
 			->validatePresence('user_id', 'create')
 			->notEmpty('user_id')
@@ -68,14 +66,6 @@ class BlogsTable extends Table {
 	{
 		$blogs['user_id']=$id;
 		return $blogs;
-	}
-
-
-	public function beforeSave($event, $entity) {
-		if (isset($entity->slug) and empty($entity->slug)) {
-			if (!empty($entity->title))
-				$entity->slug = strtolower(Inflector::slug($entity->title));
-		}
 	}
 
 }

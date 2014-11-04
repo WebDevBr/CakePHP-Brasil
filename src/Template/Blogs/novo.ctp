@@ -6,11 +6,16 @@
 		<?php
 			echo $this->Form->input('title', ['label' => 'Título do artigo']);
 		?>
+        <div class="alert alert-warning">
+            <p>
+                <small>Esta área é voltada apenas para a publicação de artigos, dúvidas não devem ser postadas aqui,
+                    não insista, ela não será aprovada para exibição.</small>
+            </p>
+        </div>
 		<div id="epiceditor"></div>
 		<hr>
 		<?php
 			echo $this->Form->input('content', ['type'=>'hidden', 'id'=>'editor']);
-			echo $this->Form->input('slug', ['label' => 'Url amigável']);
 		?>
 		</fieldset>
 	<?php echo $this->Form->button(__('Salvar')) ?>
@@ -27,13 +32,13 @@ echo $this->Html->scriptBlock("
 	  container: 'epiceditor',
 	  textarea: editor,
 	  basePath: 'epiceditor',
-	  clientSideStorage: true,
+	  clientSideStorage: false,
 	  localStorageName: 'epiceditor',
 	  useNativeFullscreen: true,
 	  parser: marked,
 	  file: {
 	    name: 'epiceditor',
-	    defaultContent: 'Seu artigo em MarkDown',
+	    defaultContent: 'Dúvida de como escrever o artigo? Aqui um [pouco sobre Markdown](http://daringfireball.net/projects/markdown/syntax)',
 	    autoSave: false
 	  },
 	  theme: {

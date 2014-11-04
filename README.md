@@ -6,7 +6,7 @@ Portal/Rede Social sobre CakePHP no Brasil.
 
 Se você se interessou por este projeto e tem interesse em participar, saiba que  ainda estamos desenvolvendo muita coisa, ainda precisamos criar muita coisa, então saiba que:
 
-  - Trabalharemos no formato de rede sociald e blogs
+  - Trabalharemos no formato de rede social de blogs
   - Já criei a parte básica de Blogs e Perfis de usuários e espero que possa ajudar nos testes e correções
   - Agora vamos partir pra fazer de likes nos artigos e perfis de forma a calcular a pontuação do usuário e isso ainda precisa ser definido, então vá as perguntas e me ajude
   - Após isso vamos construir a área de dúvidas e o FAQ e o sistema de likes e pontuação
@@ -28,7 +28,7 @@ O seu nome vai aparecer aqui se você participar do desenvolvimento do projeto, 
 
 [Lucas Macedo]
 
-Configrações Necessárias
+Configurações Necessárias
 ----
 [Envio de E-mails]
 

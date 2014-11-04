@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   `title` char(70) NOT NULL,
   `content` longtext NOT NULL,
   `slug` char(70) NOT NULL,
+  `status` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `tag_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
@@ -51,7 +52,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `token` varchar(255) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
