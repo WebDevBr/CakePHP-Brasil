@@ -143,6 +143,7 @@ class UsersTable extends Table {
         $size = $image->getSize();
 
         if ($size->getWidth() > 110 or $size->getHeight() > 80) {
+
             $image->resize($size->widen(110));
             $size = $image->getSize();
         }
@@ -150,12 +151,11 @@ class UsersTable extends Table {
         $half_w = $size->getWidth() / 2;
         $half_h = $size->getHeight() / 2;
         $thumb_w = 110;
-        $thumb_h = 80;
+        $thumb_h = ($size->getHeight()>=80)? 80 : $size->getHeight();
         $half_thumb_w = $thumb_w / 2;
         $half_thumb_h = $thumb_h / 2;
 
         $name = $this->fileImage($file['name'], $id.'-110-80');
-
         $image->crop(new Point($half_w-$half_thumb_w , $half_h-$half_thumb_h), new Box($thumb_w, $thumb_h));
         $image->save($this->dirImage($name));
         return $name;
