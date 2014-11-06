@@ -102,10 +102,10 @@ class UsersTable extends Table {
     public function perfis()
     {
         return $this->find('all', [
-            'limit'=>10,
+            'limit'=>9,
             'order'=>'RAND()',
             'conditions'=>[
-               // 'Users.photo !='=>null
+                'Users.photo !='=>''
             ]
         ]);
     }
