@@ -9,7 +9,6 @@ class UsersController extends AppController
 	public function beforeFilter(Event $event) {
 	    parent::beforeFilter($event);
 	    $this->Auth->allow(['cadastro', 'logout', 'ver','activation']);
-	    $this->set(['title'=>'Acesse o CakePHP Brasil!']);
 	}
 
 	public function ver($slug) {
@@ -54,6 +53,7 @@ class UsersController extends AppController
 	        }
 	        $this->Flash->error(__('Invalid username or password, try again'));
 	    }
+	    $this->set(['title'=>'Acesse o CakePHP Brasil!']);
 	}
 
 	public function logout() {
