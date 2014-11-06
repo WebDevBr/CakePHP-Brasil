@@ -23,7 +23,6 @@ class UsersController extends AppController
 		$this->set([
 			'user'=>$user, 'title'=>$user->name,
 			'artigos' => $this->paginate('Blogs'),
-			'title'=>'Editando seu perfil'
 		]);
 		$this->layout = 'perfil';
 	}
@@ -73,7 +72,8 @@ class UsersController extends AppController
 				$this->Flash->error('O seu perfil não pode ser atualizado, por favor, verifique.');
 			}
 		}
-		$this->set(compact('user'));
+		$title='Editando seu perfil';
+		$this->set(compact('user', 'title'));
 	}
 
 	public function senha() {
