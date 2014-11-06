@@ -3,12 +3,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-5">
-				<?php
-					$img_url = (empty($user->photo))? 'default.jpg' : 'perfil/'.$user->photo;
-					echo $this->Html->image($img_url, ['class'=>'img-responsive']);
-				?>
-				<hr>
-				<?php echo $this->Html->link('Alterar sua senha', '/devs/senha', ['class'=>'btn btn-success btn-xs']);?>
+				<p><?php echo $this->Html->link('Alterar sua senha', '/devs/senha', ['class'=>'btn btn-success btn-xs']);?></p>
+				<p><?php echo $this->Html->link('Veja seus artigos', '/meus-artigos', ['class'=>'btn btn-default btn-xs']);?></p>
+				<p><?php echo $this->Html->link('Deslogar', '/devs/logout', ['class'=>'btn btn-danger btn-xs']);?></p>
 			</div>
 			<div class="col-md-7"><p><strong><?php echo $user->name;?></strong><hr><?php echo $user->description;?></p></div>
 		</div>
