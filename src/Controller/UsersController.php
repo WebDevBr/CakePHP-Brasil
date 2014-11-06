@@ -21,7 +21,11 @@ class UsersController extends AppController
 			'order'=>['Blogs.created DESC']
 		];
 		
-		$this->set(['user'=>$user, 'title'=>$user->name, 'artigos' => $this->paginate('Blogs')]);
+		$this->set([
+			'user'=>$user, 'title'=>$user->name,
+			'artigos' => $this->paginate('Blogs'),
+			'title'=>'Editando seu perfil'
+		]);
 		$this->layout = 'perfil';
 	}
 
