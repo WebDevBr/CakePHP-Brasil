@@ -1,36 +1,42 @@
-<div class="row">
-	<div class="col-md-9">
-		<h2>Últimos artigos</h2>
+ <div class="forabg">
+      <div class="inner"><span class="corners-top"><span></span></span>
+      <ul class="topiclist">
+        <li id="kd-header1" class="header kd-forum-class1 kd-forum-header collapse in">
+          <dl class="icon">
+            <dt>Últimos artigos</dt>
+            <dd class="topics">Comentários</dd>
+            <dd class="lastpost"><span>Last post</span></dd>
+          </dl>
+        </li>
+      </ul>
+      <ul class="topiclist forums kd-forum-class1 kd-forum-body collapse in" id="kd-forum1" >
+	  	<?php foreach ($artigos as $artigo) : ?>
+	    <li class="row">
+	      <dl class="icon" style="background-image: url(	img/topic_read.svg); background-repeat: no-repeat;">
+	        <dt title="No unread posts">
+	        <?php echo $this->Html->link($artigo->title, '/artigo/'.$artigo->slug, ['escape'=>false,'class'=>'forumtitle']);?>
+	               <?php if ($authUser['id'] == $artigo->user->id) :?> 
+			<?php echo $this->Html->link('<i class="fa fa-pencil-square-o"></i> Editar', '/artigos/editar/'.$artigo->id, ['class'=>'btn btn-theme btn-xs', 'escape'=>false]);?>
+			<?php endif;?>
+	        </dt>
+	        
+	          <dd class="topics">2</dd>
+	            <dfn>Por: </dfn> 
+	            <?php echo $this->Html->link($artigo->user->name, '/'.$artigo->user->slug,['class'=>'username-coloured']);?>
+	            <?php echo $this->Html->link('<i class="fa fa-arrow-circle-right last-post-icon"></i>', '/'.$artigo->user->slug,['class'=>'username-coloured','escape'=>false]);?><br /><?php echo $artigo->created->format(' \E\m\ d/m/Y \A\s\:\ H:i');?> </span>
+	  
+	          </dd>
+	        
+	      </dl>
+	    </li>
+	    <?php endforeach;?>
+      </ul>
 
-		<?php foreach ($artigos as $artigo) :?>
-		<h3>
-			<?php echo $this->Html->link($artigo->title.'  <small><span class="glyphicon glyphicon-link"></span> </small>', '/artigo/'.$artigo->slug, ['escape'=>false]);?>
-		</h3>
-		<p><small>Escrito por: <?php echo $this->Html->link($artigo->user->name, '/'.$artigo->user->slug);?> as <?php echo $artigo->created->format('H\H \d\o \d\i\a j/n/Y');?></small></p>
+      <span class="corners-bottom"><span></span></span></div>
+    </div>
 
-		<?php
-			$img_url = (empty($artigo->user->photo))? 'default.jpg' : 'perfil/'.$artigo->user->photo;
-			echo $this->Html->image($img_url, ['class'=>'img-left']);
-		?>
-		<p>
-			<?php echo $this->Markdown->toHtmlResume($artigo->content, 200); ?>
-		</p>
-		<?php echo $this->Html->link('<span class="glyphicon glyphicon-link"></span> Leia mais', '/artigo/'.$artigo->slug, ['class'=>'btn btn-default btn-xs', 'escape'=>false]);?>
-		<a href="https://www.facebook.com/sharer/sharer.php?&display=popup&u=<?php echo $this->Url->build('/artigo/'.$artigo->slug, true);?>" class="btn btn-primary btn-xs popup">
-			<span class="glyphicon glyphicon-share-alt"></span> Compartilhe
-		</a> <a href="<?php echo $this->Url->build('/artigo/'.$artigo->slug.'#disqus_thread', true);?>" class="btn btn-default btn-xs comentarios">Comentários</a>
-		<?php if ($authUser['id'] == $artigo->user->id) :?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/artigos/editar/'.$artigo->id, ['class'=>'btn btn-success btn-xs', 'escape'=>false]);?>
-		<?php endif;?>
+	<ul class="pagination">
+		<?php echo $this->element('paginator');?>
+	</ul>
 
-		<hr>
-		
-		<?php endforeach;?>
-		<ul class="pagination">
-			<?php echo $this->element('paginator');?>
-		</ul>
-	</div>
-	<div class="col-md-3">
-		<?php echo $this->element('perfis');?>
-	</div>
-</div>
+
