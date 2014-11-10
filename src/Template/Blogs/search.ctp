@@ -1,4 +1,5 @@
- <div id="body-with-sidebar">  
+<h2><?php echo  "Busca por '". $searchTerm ."'"; ?></h2>
+
  <div class="forabg">
       <div class="inner"><span class="corners-top"><span></span></span>
       <ul class="topiclist">
@@ -19,7 +20,7 @@
 			<?php echo $this->Html->link('<i class="fa fa-pencil-square-o"></i> Editar', '/artigos/editar/'.$artigo->id, ['class'=>'btn btn-theme btn-xs', 'escape'=>false]);?>
 			<?php endif;?>
 	        </dt>
-	        <dd>
+	        </dd>
 	            <dfn>Por: </dfn> 
 	            <?php echo $this->Html->link($artigo->user->name, '/'.$artigo->user->slug,['class'=>'username-coloured']);?>
 	            <?php echo $this->Html->link('<i class="fa fa-arrow-circle-right last-post-icon"></i>', '/'.$artigo->user->slug,['class'=>'username-coloured','escape'=>false]);?><br /><?php echo $artigo->created->format(' \E\m\ d/m/Y \A\s\:\ H:i');?> </span>
@@ -37,6 +38,3 @@
 	<ul class="pagination">
 		<?php echo $this->element('paginator');?>
 	</ul>
-
-
- </div>

@@ -943,7 +943,7 @@ ul.topiclist li.row dl {
 ul.topiclist dt {
 	display: block;
 	float: left;
-	width: 60%;
+	width: 76%;
 	font-size: 1.1em;
 	padding-left: 5px;
 	padding-right: 5px;
@@ -1143,7 +1143,7 @@ div[class].topic-actions {
 	padding: 0;
 	line-height: 1.48em;
 	color: #333333;
-	width: 76%;
+	width: 90%;
 	float: left;
 	/*clear: both;*/
 	position: relative;
@@ -1657,15 +1657,14 @@ fieldset.polls dd div {
 /* Poster profile block
 ----------------------------------------*/
 .postprofile {
-	/* Also see tweaks.css */
-	margin: 15px 0 10px 0;
-	min-height: 80px;
-	color: #666666;
-	border-left: none;
-	width: 22%;
-	float: right;
-	display: inline;
-	position: relative;
+margin: 0px 0 0px 0;
+min-height: 80px;
+color: #666666;
+border-left: none;
+width: 8%;
+float: right;
+display: inline;
+position: relative;
 }
 .pm .postprofile {
 	border-left: 1px solid #DDDDDD;
@@ -2746,7 +2745,9 @@ input.inputbox	{ width: 85%; }
 input.medium	{ width: 50%; }
 input.narrow	{ width: 25%; }
 input.tiny		{ width: 125px; }
-
+input.inputbox::-webkit-input-placeholder{
+	color: #fff;
+ }
 textarea.inputbox {
 	width: 85%;
 }
@@ -5337,6 +5338,7 @@ input[type="submit"] {
 .page-header h1,.page-header h2,.page-header h3,.page-header h4 {
   margin-bottom: 0;
   padding-bottom: 0;
+  text-align: center;;
 }  
 
 /* DROPDOWNS */
@@ -6952,11 +6954,15 @@ html, body {
 }
 
 h1 {
-  color: #111111;
+ color: #696464;
+font-weight: bold;
+font-weight: 400;
 }
 
-h2,h2 a {
-  color: #AAAAAA;
+h2, h2 a {
+color: #696464;
+font-weight: bold;
+font-weight: 400;
 }
 
 .page-body-inner > h2,
@@ -6966,8 +6972,9 @@ h2,h2 a {
 }
 
 h3 {
-  border-bottom: none;
-  color: #999999;
+color: #696464;
+font-weight: bold;
+font-weight: 400;
 }
 
 hr {
@@ -8520,4 +8527,42 @@ img.img-thumbnail.perfil {
 float: left;
 width: 112px;
 margin: 3px;
+}
+.article{
+	font-size: 15px;
+}
+pre {
+word-wrap: normal;
+-ms-word-break: normal;
+word-break: normal;
+word-break: normal;
+-webkit-hyphens: none;
+-moz-hyphens: none;
+hyphens: none;
+}
+
+pre {
+width: 92%;
+overflow: auto;
+margin: 2rem 0;
+padding: 1rem 0.8rem 1rem 1.2rem;
+color: #3f3b36;
+border: 1px solid #f5d995;
+border-left: 1rem solid #f5d995;
+font: lighter 1.2rem/2rem Monaco,'MonacoRegular',monospace;
+background: url(../img/pre.png) repeat 0 -0.9rem;
+background-size: 1px 4rem;
+}
+a.img-thumbnail img {
+width: 90px;
+}
+.meus-artigos thead tr th{
+	font-size: 18px;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+		font-size: 15px;
+}
+table.table.table-hover.table-striped.meus-artigos {
+border: 1px solid #ccc;
 }

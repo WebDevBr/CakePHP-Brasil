@@ -45,14 +45,16 @@
       ###############################################################-->  
 
       
-      <div id="body-with-sidebar">            
+                
       
         <?php echo $this->Flash->render(); ?>
         <?php echo $this->fetch('content');?>
 
-      </div><!-- #body-with-sidebar END-->
-
-       <?php echo $this->Element('sidebar') ?>
+       <?php 
+         if ($this->Markdown->checkRoute('Blogs#index')) {
+             echo $this->Element('sidebar');    
+         }
+        ?>
         
 
       <!-- 

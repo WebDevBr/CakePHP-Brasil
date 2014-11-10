@@ -3,7 +3,8 @@
 namespace App\View\Helper;
 
 use Cake\View\Helper;
-
+use Cake\Routing\Router;
+	
 class MarkdownHelper extends Helper
 {
 
@@ -41,5 +42,14 @@ class MarkdownHelper extends Helper
 	    }
 	    return $data;
 	}
+
+
+	public function checkRoute($route = null) {
+		    list($controller, $action) = explode('#', $route);
+
+		    $params = Router::parseNamedParams($this->request);
+		    return ($params['controller'] == $controller && $params['action'] == $action);
+		}
+
 
 }

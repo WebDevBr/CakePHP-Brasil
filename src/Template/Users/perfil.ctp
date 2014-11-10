@@ -1,4 +1,7 @@
-<div class="row">
+<div class="page-header">
+              <h1 id="indicators"><?php echo __('Meu Perfil'); ?></h1>
+</div>
+<div class="row">	
 	<div class="col-md-4">
 	<div class="container-fluid">
 		<div class="row">
@@ -16,9 +19,8 @@
 	
 	</div>
 	<div class="col-md-8">
+
 	<?= $this->Form->create($user, ['type' => 'file']) ?>
-		<fieldset>
-			<legend><?= __('Atualizar perfil'); ?></legend>
 		<?php
 			echo $this->Form->input('name', ['label'=>'Seu nome']);
 			echo $this->Form->input('description', ['label'=>'Um pouco sobre você']);

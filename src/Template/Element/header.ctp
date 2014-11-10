@@ -9,14 +9,21 @@
 				<ul>
 					<li>
 						<div class="search-box">
-							<form action="./search.php?style=46" method="get" id="search">
-								<fieldset>
-									<div class="inside-search-box">
-					<input name="keywords" id="search_keywords" type="text" maxlength="128" title="Search for keywords" class="inputbox" value="Search…" />
-										<input class="button2" type="submit" value="&#xf002" />	
-									</div>						
-								</fieldset>
-							</form>
+						<?php
+							$formAction = $this->Url->build('/busca');
+                            $searchInput = null;
+                            if(!empty($searchTerm)) $searchInput = $searchTerm;
+
+                            echo "<form method=\"get\" action=\"{$formAction}\" class=\"header-search-form\" id='search'>";
+                            echo '<fieldset>';
+                            echo '<div class="inside-search-box">';
+                            echo "<input type=\"text\" name=\"s\" value=\"{$searchInput}\" placeholder=\"Busca...\" id=\"searchInput\" class='inputbox'/>";
+                            echo '<input class="button2" type="submit" value="&#xf002" />	';
+                            echo '</div>';
+                             echo '</fieldset>';
+                            echo '</form>';
+                        ?>
+		
 						</div>
 					</li>						
 				</ul>		
@@ -46,19 +53,27 @@
 				<span class="icon-bar"></span>
 			</button>
 			<!-- THE BUTTON FOR RESPONSIVE MENU END --><!-- LOGO START BELOW-->
-			<a href="./index.php?style=46" title="Board index" id="logo"><i class="fa fa-globe"></i><span class="logo-text">Charon</span></a>
+			<?php echo $this->Html->link($this->Html->image('logo.png'),'/',['id'=>'logo','escape'=>false]);?>
 			<!-- LOGO END --><!-- NAVIGATION LINKS START BELOW -->
 			<div id="nav-menu" class="collapse navbar-collapse">
 				<div class="nav-menu-inner">
 					<ul class="nav navbar-nav navbar-right">
-						 <?php
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Contato','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Jobs','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Opoio','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Registre-se','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-lock"></i> Login','/users/acesso',['escape'=>false]));
+			<?php
+			$authUser = !empty($authUser) ? $authUser : false;
 
-				            ?>
+			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Contato','/pages/contato',['escape'=>false]));
+			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Jobs','/pages/jobs',['escape'=>false]));
+			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Opoio','/pages/apoio',['escape'=>false]));
+
+			if($authUser){
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Sair','/devs/logout',['escape'=>false]));	
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Meu Perfil','/devs/perfil',['escape'=>false]));
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Meus Artigos','/meus-artigos',['escape'=>false]));
+			}else{
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Registre-se','/devs/cadastro',['escape'=>false]));
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-lock"></i> Login','/users/acesso',['escape'=>false]));
+			}
+			?>
 
 					</ul><!-- end nav navbar-nav navbar-right -->
 

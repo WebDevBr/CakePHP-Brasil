@@ -6,8 +6,7 @@
 		<div class="inner container clearfix">			
 
 			<ul>
-				<li><a href="./index.php?style=46" accesskey="h"><i class="fa fa-home"></i> Board index</a></li>				
-				
+				<li><?php echo $this->Html->link('<i class="fa fa-home"></i> Home','/',['escape'=>false])?>
 			</ul>
 
 		</div>
@@ -20,14 +19,20 @@
 				<div class="col-md-8 footer-links">
 
 			    	<ul>
-			 <?php
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Contato','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Jobs','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Opoio','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Registre-se','/devs/cadastro',['escape'=>false]));
-			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-lock"></i> Login','/users/acesso',['escape'=>false]));
-
-				            ?>
+			<?php
+			$authUser = !empty($authUser) ? $authUser : false;
+			if($authUser){
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Meu Perfil','/devs/perfil',['escape'=>false]));
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Meus Artigos','/meus-artigos',['escape'=>false]));
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Sair','/devs/logout',['escape'=>false]));	
+			}else{
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Registre-se','/devs/cadastro',['escape'=>false]));
+				echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-lock"></i> Login','/users/acesso',['escape'=>false]));
+			}
+			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Contato','/pages/contato',['escape'=>false]));
+			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Jobs','/pages/jobs',['escape'=>false]));
+			echo $this->Html->tag('li',$this->Html->link('<i class="fa fa-user"></i> Opoio','/pages/apoio',['escape'=>false]));
+			?>
 						
 					</ul>
 				<div class="copyright">Powered by <?php echo $this->Html->link('CakePHP Brasil','/') ?></div>

@@ -8,7 +8,7 @@ class BlogsController extends AppController {
 
 	public function beforeFilter(Event $e) {
 	    parent::beforeFilter($e);
-	    $this->Auth->allow(['index', 'ver']);
+	    $this->Auth->allow(['index', 'ver','search']);
 	}
 
 	public function ver($slug = null) {
@@ -66,6 +66,7 @@ class BlogsController extends AppController {
 		$this->paginate = [
 			'contain' => ['Users', 'Tags', 'Categories'],
 			'order'=>['Blogs.created DESC'],
+			'limit'=>15,
             'conditions'=>[
                 'Blogs.status'=>1
             ]
@@ -89,4 +90,35 @@ class BlogsController extends AppController {
 			$this->render('nenhum_artigo');
 		}
 	}
+
+	public function search() {
+		$searchTerm = null;	
+
+		$options = [
+			'paramType' => 'querystring',
+			'contain' => ['Users', 'Tags', 'Categories'],
+			'order' => ['Blogs.title ASC'],
+			'limit' => 15,
+		];
+
+		 if (!empty($this->request->query['s'])) {
+		 	$searchTerm = $this->request->query['s'];
+		 	$options['conditions']['OR']['Blogs.title LIKE'] = "%{$searchTerm}%";
+            $options['conditions']['OR']['Blogs.content LIKE'] = "%{$searchTerm}%";
+		 }else{
+		 	 $this->redirect('/');
+		 }
+		
+
+
+		$this->paginate = $options;
+		$perfis = $this->Blogs->Users->perfis();
+	
+		$this->set([
+			'artigos'=> $this->paginate($this->Blogs),
+			'perfis'=>$perfis,
+			'searchTerm'=>$searchTerm
+		]);
+	}
+
 }
