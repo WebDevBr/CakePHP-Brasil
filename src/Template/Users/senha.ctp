@@ -3,7 +3,10 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-5">
-				<?php echo $this->Html->image('perfil/'.$user->photo, ['class'=>'img-responsive']);?>
+				<?php
+					$img_url = (empty($user->photo))? 'default.jpg' : 'perfil/'.$user->photo;
+					echo $this->Html->image($img_url, ['class'=>'img-responsive']);
+				?>
 				<hr>
 				<?php echo $this->Html->link('Alterar seu perfil', '/devs/perfil', ['class'=>'btn btn-success btn-xs']);?>
 			</div>

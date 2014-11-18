@@ -1,3 +1,6 @@
+<div class="page-header">
+              <h1 id="indicators">Apoie o CakePHP Brasil</h1>
+</div>
 <div class="row">
 	<div class="col-md-12">
 		<p>O CakePHP Brasil foi construido para ajudar a divulgar o CakePHP assim como ajudar iniciantes e profissionais experientes a explorar o melhor do Framework, minha esperança é que a comunidade participe ativamente publicando artigos, ajudando a corrigir o código, sugerindo novos módulos ou desenvolvendo eles e até mesmo com os custos financeiros do projeto através de doações ou anunciando no portal.</p>

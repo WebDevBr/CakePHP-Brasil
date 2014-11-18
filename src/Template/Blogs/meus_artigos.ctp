@@ -1,7 +1,16 @@
+
 <div class="row">
 	<div class="col-md-12">
-		<legend><?php echo __('Meus artigos'); ?> <?php echo $this->Html->link('novo', ['action'=>'novo'], ['class'=>'btn btn-primary btn-xs']);?></legend>
-		<table class="table table-hover table-striped">
+		<div class="page-header">
+              <h1 id="indicators"><?php echo __('Meus artigos'); ?></h1>
+</div>
+
+		<div class="pull-right">
+		 <?php echo $this->Html->link('novo', ['action'=>'novo'], ['class'=>'btn btn-primary']);?>
+		</div>
+		<br/><br/>
+
+		<table class="table table-hover table-striped meus-artigos">
 			<thead>
 				<tr>
 					<th>Artigo</th>
@@ -9,13 +18,13 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach ($artigos as $artigo) :?>
+			<?php foreach ($artigos as $artigo): ?>
 				<tr>
 					<td><?php echo $artigo->title;?></td>
 					<td class="text-right">
-						<?php echo $this->Html->link('ver', '/artigo/' . $artigo->slug, ['class'=>'btn btn-default btn-xs']);?>
-						<?php echo $this->Html->link('editar', ['action'=>'editar', $artigo->id], ['class'=>'btn btn-primary btn-xs']);?>
-						<?php echo $this->Html->link('remover', ['action'=>'remover', $artigo->id], ['class'=>'btn btn-danger btn-xs']);?>
+						<?php echo $this->Html->link('ver', '/artigo/' . $artigo->slug, ['class'=>'btn btn-success  btn-sm']);?>
+						<?php echo $this->Html->link('editar', ['action'=>'editar', $artigo->id], ['class'=>'btn btn-primary  btn-sm']);?>
+						<?php echo $this->Html->link('remover', ['action'=>'remover', $artigo->id], ['class'=>'btn btn-danger btn-sm']);?>
 					</td>
 				</tr>
 			<?php endforeach;?>
