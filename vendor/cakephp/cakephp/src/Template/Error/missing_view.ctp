@@ -9,36 +9,59 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
+ * @since         3.0.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-use Cake\Utility\Inflector;
+use Cake\Core\Plugin;
+use Cake\Core\Configure;
+$namespace = Configure::read('App.namespace');
+
+$pluginPath = Configure::read('App.paths.plugins.0');
+$pluginDot = empty($plugin) ? null : $plugin . '.';
+
+if (empty($plugin)) {
+    $filePath = APP_DIR . DS;
+    $namespace = $plugin;
+}
+if (!empty($plugin) && Plugin::loaded($plugin)) {
+    $filePath = Plugin::classPath($plugin);
+}
+if (!empty($plugin) && !Plugin::loaded($plugin)) {
+    $filePath = $pluginPath . h($plugin) . DS . 'src' . DS;
+}
+
+$this->layout = 'dev_error';
+$this->assign('title', 'Missing View');
+$this->assign('templateName', 'missing_view.ctp');
+
+$this->start('subheading');
 ?>
-<h2>Missing View</h2>
+    <strong>Error: </strong>
+    <em><?= h($pluginDot . $class) ?></em> could not be found.
+    <?php if (!empty($plugin) && !Plugin::loaded($plugin)): ?>
+    Make sure your plugin <em><?= h($plugin) ?></em> is in the <?= h($pluginPath) ?> directory and was loaded.
+    <?php endif ?>
+    <?= $this->element('plugin_class_error', ['pluginPath' => $pluginPath]) ?>
+</p>
+<?php $this->end() ?>
+
+<?php $this->start('file') ?>
 <p class="error">
-	<strong>Error: </strong>
-	<?= sprintf('The view for <em>%sController::%s()</em> was not found.', h(Inflector::camelize($this->request->controller)), h($this->request->action)); ?>
+    <strong>Error: </strong>
+    <?= sprintf('Create the class <em>%s</em> below in file: %s', h($class), $filePath . 'View' . DS . h($class) . '.php'); ?>
 </p>
-
-<p>
-	<?= sprintf('Confirm you have created the file: "%s"', h($file)) ?>
-	in one of the following paths:
-</p>
-<ul>
 <?php
-	$paths = $this->_paths($this->plugin);
-	foreach ($paths as $path):
-		if (strpos($path, CORE_PATH) !== false) {
-			continue;
-		}
-		echo sprintf('<li>%s%s</li>', h($path), h($file));
-	endforeach;
+$code = <<<PHP
+<?php
+namespace {$namespace}\View;
+
+use Cake\View\View;
+
+class {$class}View extends View
+{
+
+}
+PHP;
 ?>
-</ul>
-
-<p class="notice">
-	<strong>Notice: </strong>
-	<?= sprintf('If you want to customize this error message, create %s', APP_DIR . DS . 'Template' . DS . 'Error' . DS . 'missing_view.ctp') ?>
-</p>
-
-<?= $this->element('exception_stack_trace'); ?>
+<div class="code-dump"><?php highlight_string($code) ?></div>
+<?php $this->end() ?>

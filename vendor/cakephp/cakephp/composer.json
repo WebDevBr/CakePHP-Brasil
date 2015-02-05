@@ -20,16 +20,15 @@
 	"require": {
 		"php": ">=5.4.16",
 		"ext-intl": "*",
-		"ext-mcrypt": "*",
 		"ext-mbstring": "*",
-		"nesbot/Carbon": "1.8.*",
+		"nesbot/Carbon": "1.13.*",
 		"ircmaxell/password-compat": "1.0.*",
 		"aura/intl": "1.1.*",
 		"psr/log": "1.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "*",
-		"cakephp/cakephp-codesniffer": "*"
+		"cakephp/cakephp-codesniffer": "dev-master"
 	},
 	"autoload": {
 		"psr-4": {
@@ -37,12 +36,19 @@
 		},
 		"files": [
 			"src/Core/functions.php",
-			"src/Collection/functions.php"
+			"src/Collection/functions.php",
+			"src/I18n/functions.php"
 		]
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Cake\\Test\\": "tests"
+			"Cake\\Test\\": "tests",
+			"Company\\TestPluginThree\\Test\\": "tests/test_app/Plugin/Company/TestPluginThree/tests",
+			"TestApp\\": "tests/test_app/TestApp",
+			"TestPlugin\\": "tests/test_app/Plugin/TestPlugin/src",
+			"TestPlugin\\Test\\": "tests/test_app/Plugin/TestPlugin/tests",
+			"TestPluginTwo\\": "tests/test_app/Plugin/TestPluginTwo/src",
+			"PluginJs\\": "tests/test_app/Plugin/PluginJs/src"
 		}
 	},
 	"replace": {
@@ -52,7 +58,9 @@
 		"cakephp/utility": "self.version",
 		"cakephp/core": "self.version",
 		"cakephp/datasource": "self.version",
+		"cakephp/database": "self.version",
 		"cakephp/cache": "self.version",
-		"cakephp/log": "self.version"
+		"cakephp/log": "self.version",
+		"cakephp/i18n": "self.version"
 	}
 }

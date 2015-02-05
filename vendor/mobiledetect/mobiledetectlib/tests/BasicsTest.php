@@ -1,29 +1,5 @@
 <?php
 /**
- * MIT License
- * ===========
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be included
- * in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
- * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
- * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- *
- * @author      Serban Ghita <serbanghita@gmail.com>
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        http://mobiledetect.net
  */
@@ -177,7 +153,8 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider userAgentProvider
-     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
+     * @covers Mobile_Detect::setUserAgent
+     * @covers Mobile_Detect::getUserAgent
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
@@ -203,7 +180,8 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
+     * @covers Mobile_Detect::setUserAgent
+     * @covers Mobile_Detect::getUserAgent
      */
     public function testSetUserAgent()
     {
@@ -461,7 +439,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
     public function testScriptVersion()
     {
         $v = Mobile_Detect::getScriptVersion();
-        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9](-[a-zA-Z0-9])?$/', $v);
+        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9])?$/', $v);
 
         $this->assertTrue($formatCheck, "Fails the semantic version test. The version " . var_export($v, true)
                 . ' does not match X.Y.Z pattern');

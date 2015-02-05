@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.svg?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect) [![Latest Stable Version](https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![Total Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![Daily Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/d/daily.png)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![License](https://poser.pugx.org/mobiledetect/mobiledetectlib/license.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/serbanghita/Mobile-Detect?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 ![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
@@ -8,6 +11,16 @@ It uses the User-Agent string combined with specific HTTP headers to detect the 
 > We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis.
 
 Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is  _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
+
+##### This month updates
+
+First of all a **BIG THANK YOU** to our growing community for your continuous support and for all the feedback received! I'm still working my way with the current issues and all the emails. 
+
+Nick is almost done with all the code for the upcoming `3.0.0` so that I only have to integrate the new parsing engine. We will release minor `2.8.xx` versions until a feature freeze where we will switch to the new branch. You will all be announced before this and hopefully we can make the transition smooth for everyone.
+
+<a href="http://trycatch.us/"><img align="left" src="http://assets.mobiledetect.net/img/try_catch_logo_80px.jpg" hspace="20"></a> Last but not least, special thanks for supporting us to our friends from [TryCatch.us](http://trycatch.us/) who _are set to carefully curate the most talented developers in Europe_!
+
+Thank you all and we're excited for the new release!
 
 ##### Download and demo
 
@@ -47,7 +60,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 <tr>
   <td>WordPress</td>
   <td>
-    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
+    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a `[notdevice][/notdevice]` shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
 
     <p><a href="http://wordpress.org/plugins/mobble/">mobble</a> - provides mobile related conditional functions for your site. e.g. is_iphone(), is_mobile() and is_tablet(). Made by Scott Evans.</p>
 
@@ -63,10 +76,10 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
     <p><a href="http://drupal.org/project/mobile_switch">Drupal Mobile Switch</a> - The Mobile Switch <code>Drupal</code> module provides a automatic theme switch functionality for mobile devices,
     detected by Browscap or Mobile Detect. Made by <a href="http://drupal.org/user/45267">Siegfried Neumann</a>.</p>
 
-      <p><a href="http://drupal.org/project/context_mobile_detect">Drupal Context Mobile Detect</a> - This is a <code>Drupal context</code> module which integrates Context and PHP Mobile Detect library.
+   <p><a href="http://drupal.org/project/context_mobile_detect">Drupal Context Mobile Detect</a> - This is a <code>Drupal context</code> module which integrates Context and PHP Mobile Detect library.
       Created by <a href="http://drupal.org/user/432492">Artem Shymko</a>.</p>
 
-      <p><a href="http://drupal.org/project/mobile_detect">Drupal Mobile Detect</a> - Lightweight mobile detect module for <code>Drupal</code> created by <a href="http://drupal.org/user/325244">Matthew Donadio</a></p>
+   <p><a href="http://drupal.org/project/mobile_detect">Drupal Mobile Detect</a> - Lightweight mobile detect module for <code>Drupal</code> created by <a href="http://drupal.org/user/325244">Matthew Donadio</a></p>
   </td>
 </tr>
 
@@ -91,7 +104,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
   <td>
     <p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers). Made by <a href="https://github.com/neilime">neilime</a></p>
 
-    <p><a href="https://github.com/nikolaposa/MobileDetectModule">ZF2 MobileDetectModule</a> - Facilitates integration of a PHP MobileDetect class with some ZF2-based application. Has similar idea like the existing ZF2 Mobile-Detect module, but differs in initialization and provision routine of the actual Mobile_Detect class. Appropriate view helper and controller plugin also have different conceptions. Made by <a href="https://github.com/nikolaposa">Nikola Posa</a></p>
+   <p><a href="https://github.com/nikolaposa/MobileDetectModule">ZF2 MobileDetectModule</a> - Facilitates integration of a PHP MobileDetect class with some ZF2-based application. Has similar idea like the existing ZF2 Mobile-Detect module, but differs in initialization and provision routine of the actual Mobile_Detect class. Appropriate view helper and controller plugin also have different conceptions. Made by <a href="https://github.com/nikolaposa">Nikola Posa</a></p>
   </td>
  </tr>
 
@@ -107,7 +120,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
     <td>Laravel</td>
     <td>
     <p><a href="https://github.com/jenssegers/Laravel-Agent">Laravel-Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a>.</p>
-    <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a>is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
+    <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a> is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
     </td>
   </tr>
 
@@ -143,13 +156,28 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 </tr>
 
 <tr>
+  <td>Kohana</td>
+  <td><p><a href="https://github.com/madeinnordeste/kohana-mobile-detect">Kohana Mobile Detect</a> - an example of implementation of <code>Mobile_Detect</code> class with Kohana framework. Written by <a href="https://github.com/madeinnordeste">Luiz Alberto S. Ribeiro</a>.</p></td>
+</tr>
+
+<tr>
   <td>mobile-detect.js</td>
   <td><p>A <a href="https://github.com/hgoebl/mobile-detect.js">JavaScript port</a> of Mobile-Detect class. Made by <a href="https://github.com/hgoebl">Heinrich Goebl</a></p></td>
   </tr>
 
  <tr>
+      <td>Perl</td>
+      <td><p><a href="http://www.buzzerstar.com/development/">MobileDetect.pm</a> - <code>Perl module</code> for  Mobile Detect. Made by <a href="http://www.buzzerstar.com/">Sebastian Enger</a>.</p></td>
+ </tr>
+
+ <tr>
       <td>python</td>
       <td><p><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a> - Mobile detect <code>python package</code>. Made by Bas van Oostveen.</p></td>
+ </tr>
+ 
+ <tr>
+	 <td>Ruby</td>
+	 <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
  </tr>
 
 <tr>

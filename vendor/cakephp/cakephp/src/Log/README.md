@@ -1,6 +1,6 @@
 # CakePHP Logging Library
 
-The Cache library provides a `Log` service locator for interfacing with
+The Log library provides a `Log` service locator for interfacing with
 multiple logging backends using a simple interface. With the `Log` class it is
 possible to send a single message to multiple logging backends at the same time
 or just a subset of them based on the log level or context.
@@ -35,7 +35,7 @@ Log::config('production', [
 It is also possible to create loggers by providing a closure.
 
 ```php
-Log::config('special', function() {
+Log::config('special', function () {
 	// Return any PSR-3 compatible logger
 	return new MyPSR3CompatibleLogger();
 });

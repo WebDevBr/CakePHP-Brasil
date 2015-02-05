@@ -1,29 +1,5 @@
 <?php
 /**
- * MIT License
- * ===========
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be included
- * in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
- * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
- * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- *
- * @author      Serban Ghita <serbanghita@gmail.com>
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        http://mobiledetect.net
  */
@@ -43,6 +19,9 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         $jsonFile = dirname(__FILE__) . '/ualist.json';
         $phpFile = dirname(__FILE__) . '/UA_List.inc.php';
 
+        //currently stored as a PHP array
+        $list = include $phpFile;
+
         //check recency of the file
         if (file_exists($jsonFile) && is_readable($jsonFile)) {
             //read the json file
@@ -51,13 +30,14 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
             //check that the hash matches
             $hash = isset($json['hash']) ? $json['hash'] : null;
 
-            if ($hash == sha1_file($phpFile)) {
+            if ($hash == sha1(serialize($list))) {
                 //file is up to date, just read the json file
                 self::$json = $json['user_agents'];
 
                 return self::$json;
             }
         }
+
 
         //uses the UA_List.inc.php to generate a json file
         if (file_exists($jsonFile) && !is_writable($jsonFile)) {
@@ -68,8 +48,9 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
             throw new RuntimeException("Insufficient permissions to create this file: $jsonFile");
         }
 
-        //currently stored as a PHP array
-        $list = include $phpFile;
+
+
+        //print_r($list['Acer']); exit;
 
         $json = array();
 
@@ -107,7 +88,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         }
 
         //save the hash
-        $hash = sha1_file($phpFile);
+        $hash = sha1(serialize($list));
         $json = array(
             'hash' => $hash,
             'user_agents' => $json
@@ -149,8 +130,9 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
 
     public function userAgentData()
     {
-        if (!count(self::$ualist))
+        if (!count(self::$ualist)) {
             self::setUpBeforeClass();
+        }
 
         return self::$ualist;
     }
@@ -176,7 +158,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($md->isMobile(), $isMobile);
 
         //is tablet?
-        $this->assertEquals($md->isTablet(), $isTablet);
+        $this->assertEquals($md->isTablet(), $isTablet, 'FAILED: ' . $userAgent . ' isTablet: ' . $isTablet);
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {

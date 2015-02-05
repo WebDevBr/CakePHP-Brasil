@@ -35,26 +35,26 @@ echo Inflector::singularize('People'); // echoes Person
 
 Check the [official Inflector class documentation](http://book.cakephp.org/3.0/en/core-libraries/inflector.html)
 
-### String
+### Text
 
-The String class includes convenience methods for creating and manipulating strings.
+The Text class includes convenience methods for creating and manipulating strings.
 
 ```php
-String::insert(
+Text::insert(
     'My name is :name and I am :age years old.',
-    array('name' => 'Bob', 'age' => '65')
+    ['name' => 'Bob', 'age' => '65']
 );
 // Returns: "My name is Bob and I am 65 years old."
 
 $text = 'This is the song that never ends.';
-$result = String::wrap($text, 22);
+$result = Text::wrap($text, 22);
 
 // Returns
 This is the song
 that never ends.
 ```
 
-Check the [official String class documentation](http://book.cakephp.org/3.0/en/core-libraries/string.html)
+Check the [official Text class documentation](http://book.cakephp.org/3.0/en/core-libraries/text.html)
 
 ### Security
 
@@ -75,13 +75,13 @@ The Xml class allows you to easily transform arrays into SimpleXMLElement or DOM
 and back into arrays again
 
 ```php
-$data = array(
-    'post' => array(
+$data = [
+    'post' => [
         'id' => 1,
         'title' => 'Best post',
         'body' => ' ... '
-    )
-);
+    ]
+];
 $xml = Xml::build($data);
 ```
 
